@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop | Fittness Freaks</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/12541518cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./about.css" />
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <div class="w-100">
+      <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container-fluid">
+          <i class="fa-solid fa-dumbbell fs-1 ms-2 me-2 text-light"></i>
+          <a class="navbar-brand" href="#">Fittness Freaks</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-a-custom"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle nav-a-custom"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Shop
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/shopSup.html"
+                      >Supplements</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/shopclothes.html">Others</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/contact.html"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-btn-toggle"
+                  href="./login.html"
+                  data-bs-placement="bottom"
+                  title="Click to change theme"
+                >
+                  Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- navbar -->
+
+    <div id="main" class="container-fluid">
+      <!-- alerts -->
+      <div
+        id="alert-d"
+        class="alert d-none text-uppercase alert-warning"
+        role="alert"
+      >
+        <i
+          class="bi bi-exclamation-triangle-fill"
+          style="color: rgb(208, 255, 0)"
+        ></i>
+        Your Cart is empty!
+      </div>
+      <div
+        id="alert-success"
+        class="alert d-none text-uppercase alert-success"
+        role="alert"
+      >
+        <i class="bi bi-check-circle-fill" style="color: green"></i>
+        Your Order Is placed,thank you for shopping
+      </div>
+      <div
+        id="alert-order-backend"
+        class="alert d-none text-uppercase alert-warning"
+        role="alert"
+      >
+        <i
+          class="bi bi-exclamation-triangle-fill"
+          style="color: rgb(208, 255, 0)"
+        ></i>
+        Your Order Is placed,But due some internal we are unable to how you the
+        response but rest assured your order is placed and you will get it in
+        2-3 working days
+      </div>
+      <!-- alerts -->
+
+      <!-- dercription or sometext -->
+      <!-- <div class="conatiner">
+        <div class="row">
+          <div class="col">
+            <h3>Welcome , here we have all kinds of supplemnts</h3>
+          </div>
+        </div>
+      </div> -->
+      <!-- dercription or sometext -->
+
+      <div id="main-container" class="container">
+        <div id="main-div" class="row my-2"></div>
+      </div>
+
+      <div id="cart-details" class="d-none mt-3">
+        <div class="row">
+          <div class="col-5">
+            <h5 class="text-secondary bg-dark font-weight-bold">
+              Product Name
+            </h5>
+            <ol id="list1"></ol>
+          </div>
+          <div class="col-5">
+            <h5 class="text-secondary bg-dark font-weight-bold">
+              Product Desription
+            </h5>
+            <ul id="list2" class="list-unstyled ps-3"></ul>
+          </div>
+          <div class="col-2">
+            <h5 class="text-secondary bg-dark font-weight-bold">Price</h5>
+            <ul id="list3" class="list-unstyled ps-3"></ul>
+          </div>
+        </div>
+      </div>
+      <div
+        id="bottom-btn"
+        class="row d-none d-flex flex-row justify-content-evenly"
+      >
+        <div class="col-3">
+          <button type="button" id="btn-2" class="btn ms-4 btn-primary btn-md">
+            <a class="btn-buffet text-uppercase" href="">Continue Shopping</a>
+          </button>
+        </div>
+        <div class="col-3">
+          <button type="button" id="Confirm-btn" class="btn btn-primary btn-md">
+            <a class="btn-buffet text-uppercase" href=""
+              >Confirm and Checkout</a
+            >
+          </button>
+        </div>
+      </div>
+      <div class="form-checkout d-none container m-3 row">
+        <h5 class="text-muted fw-bold text-uppercase fs-5">
+          Please Fill This Correctly in case of any false information provided
+          we will not be responsible for the consequences
+        </h5>
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Name :</label>
+          <input type="text" id="name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Phone Number :</label>
+          <input type="number" id="phone" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Address</label>
+          <input type="text" id="address" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" required />
+        </div>
+        <button id="order-btn" type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
+      <div class="order-card d-none">
+        <h3 class="text-secondary bg-dark font-weight-bold">
+          Order Tracking ID
+        </h3>
+        <h5 class="Order_id"></h5>
+        <div class="row">
+          <div class="col-6 d-flex flex-column">
+            <div>
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Customer Name
+              </h5>
+              <br />
+              <span class="customer_name"></span>
+            </div>
+            <div>
+              <h5
+                class="text-secondary bg-dark font-weight-bold"
+                for="Customer Name"
+              >
+                Customer Address
+              </h5>
+              <br />
+              <span class="customer_address"></span>
+            </div>
+          </div>
+          <div class="col-6 d-flex flex-column">
+            <div>
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Customer Phone
+              </h5>
+              <br />
+              <span class="title customer_phone"></span>
+            </div>
+            <div>
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Customer Email
+              </h5>
+              <br />
+              <span class="title customer_email"></span>
+            </div>
+          </div>
+        </div>
+        <div id="Ordered-Cart-Details" class="mt-3">
+          <div class="row">
+            <div class="col-5">
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Product Name
+              </h5>
+              <ol id="name_list"></ol>
+            </div>
+            <div class="col-5">
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Product Desription
+              </h5>
+              <ul id="description_list" class="list-unstyled ps-3"></ul>
+            </div>
+            <div class="col-2">
+              <h5 class="text-secondary bg-dark font-weight-bold">Price</h5>
+              <ul id="price_list" class="list-unstyled ps-3"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mb-3 text-center bg-dark" style="height: 600px">
+      <h3 class="text-light">Our Story</h3>
+      <p class="text-light">
+        Fitness Freaks is an Online Supplement And Fitness Store as well as a
+        Gym Management System. We provide 100% original supplements with
+        authorized dealers in dubai. Fitness Freaks aims not just for
+        supplements but to bring more sports and gymnasium goods also to the
+        doorstep with honesty and integrity while changing their lives for the
+        better.
+      </p>
+    </div>
+
+    <h2 style="text-align: center">Our Team</h2>
+    <div class="row m-3">
+      <div class="col-3 custom-class">
+        <div class="card" style="width: 25rem">
+          <img src="./images/sheikh.jpeg" class="card-img-top" alt="..." />
+          <div class="card-body text-center">
+            <h5 class="card-title">Hamza Sheikh</h5>
+            <h3 class="text-muted">Web Developer</h3>
+            <p>hamzasheih@gmail.com</p>
+            <div class="d-flex flex-row justify-content-center">
+              <i class="bi fs-1 text-info m-2 bi-twitter"></i>
+              <i class="bi fs-1 m-2 bi-github"></i>
+              <i class="bi fs-1 m-2 bi-linkedin" style="color: #0072b1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 custom-class">
+        <div class="card" style="width: 25rem">
+          <img src="./images/dawood.jpeg" class="card-img-top" alt="..." />
+          <div class="card-body text-center">
+            <h5 class="card-title">Dawood Zahid</h5>
+            <h3 class="text-muted">Web Developer</h3>
+            <p>dawoodzahid@gmail.com</p>
+            <div class="d-flex flex-row justify-content-center">
+              <i class="bi fs-1 m-2 text-info bi-twitter"></i>
+              <i class="bi fs-1 m-2 bi-github"></i>
+              <i class="bi fs-1 m-2 bi-linkedin" style="color: #0072b1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 custom-class">
+        <div class="card" style="width: 25rem">
+          <img
+            src="./images/IMG-20210104-WA0012.jpg"
+            style="height: 396px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title">Asadulhaq</h5>
+            <h3 class="text-muted">Web Developer</h3>
+            <p>asadulhaq543@gmail.com</p>
+            <div class="d-flex flex-row justify-content-center">
+              <i class="bi fs-1 m-2 text-info bi-twitter"></i>
+              <i class="bi fs-1 m-2 bi-github"></i>
+              <i class="bi fs-1 m-2 bi-linkedin" style="color: #0072b1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="pt-4 pb-4 text-white custom-footer">
+      <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+          <div class="col-lg-3 col-md-6 col-sm-12 mx-auto">
+            <h4>OPENING HOURS</h4>
+            <ul class="list-unstyled">
+              <li class="fw-light">MONDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">TUESDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">WEDNESDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">THURSDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">FRIDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">STURDAY....9:00AM-12:00AM</li>
+              <li class="fw-light">SUNDAY....9:00AM-9:00PM</li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 mx-auto">
+            <h4>LOCATIONS</h4>
+            <p>
+              <i class="bi bi-geo-alt-fill"></i>
+              <a
+                href="#"
+                class="text-white fw-light"
+                style="text-decoration: none"
+              >
+                Model Town,Bank Square</a
+              >
+            </p>
+            <p>
+              <i class="bi bi-geo-alt-fill"></i>
+              <a
+                href="#"
+                class="text-white fw-light"
+                style="text-decoration: none"
+                >Liberty,Round About</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 mx-auto">
+            <h4>Shop</h4>
+            <p>
+              <a
+                href="#"
+                class="text-white fw-light"
+                style="text-decoration: none"
+                href="./index.html"
+                >Home</a
+              >
+            </p>
+            <p>
+              <a
+                href="/shopSup.html"
+                class="text-white fw-light"
+                style="text-decoration: none"
+                >Supplements
+              </a>
+            </p>
+            <p>
+              <a
+                href="/shopclothes.html"
+                class="text-white fw-light"
+                style="text-decoration: none"
+                >Others</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 mx-auto">
+            <h4>CONTACT</h4>
+            <p class="fw-light"><i class="bi bi-telephone"></i> 0300653263</p>
+            <p class="fw-light">
+              <i class="bi bi-envelope-fill"></i> asadulhaq543@gmail.com
+            </p>
+          </div>
+          <hr class="mb-4" />
+          <div class="row align-items-center">
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <p>
+                <a
+                  href="#"
+                  class="fw-light text-white"
+                  style="text-decoration: none"
+                >
+                  Copyright&copy; 2022 All Rights Reserved
+                </a>
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white">
+                    <i class="bi bi-facebook fs-4"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white">
+                    <i class="bi bi-instagram fs-4"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white">
+                    <i class="bi bi-twitter fs-4"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white">
+                    <i class="bi bi-whatsapp fs-4"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section -->
+
+    <!-- javascript file for bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

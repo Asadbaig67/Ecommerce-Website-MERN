@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login|Fitness Freaks</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link href="css/particles.css" rel="stylesheet" />
+    <link href="css/auth.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="w-100">
+      <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+          <i class="fa-solid fa-dumbbell fs-1 ms-2 me-2 text-light"></i>
+          <a class="navbar-brand" href="#">Fittness Freaks</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-a-custom"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle nav-a-custom"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Shop
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/shopSup.html"
+                      >Supplements</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/shopclothes.html">Others</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/contact.html"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-btn-toggle"
+                  href="./login.html"
+                  data-bs-placement="bottom"
+                  title="Click to change theme"
+                >
+                  Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- navbar -->
+
+    <div class="container">
+      <main class="box">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+          <div class="inputBox">
+            <label for="userName">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="userName"
+              placeholder="type your email"
+              required
+            />
+          </div>
+          <div class="inputBox">
+            <label for="userPassword">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="userPassword"
+              placeholder="type your password"
+              required
+            />
+          </div>
+          <div>
+            <button type="submit" style="float: left">Login</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

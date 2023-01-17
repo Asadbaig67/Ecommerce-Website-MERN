@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cart|Fitness Freaks</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/12541518cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="./shopSup.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./cart.css" />
+  </head>
+  <body>
+    <h3 class="cart-header">Products In Cart :</h3>
+    <h3 class="cart-empty d-none text-center mt-auto ms-auto">
+      Cart is empty , Please add items to cart
+    </h3>
+    <div id="cart-details" class="d-none">
+      <div class="row">
+        <div class="col-5">
+          <h5 class="text-secondary bg-dark font-weight-bold">Product Name</h5>
+          <ol id="list1"></ol>
+        </div>
+        <div class="col-5">
+          <h5 class="text-secondary bg-dark font-weight-bold">
+            Product Desription
+          </h5>
+          <ul id="list2" class="list-unstyled ps-3"></ul>
+        </div>
+        <div class="col-2">
+          <h5 class="text-secondary bg-dark font-weight-bold">Price</h5>
+          <ul id="list3" class="list-unstyled ps-3"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex d-none">
+      <button
+        type="button"
+        id="btn-2"
+        class="btn text-center btn-primary btn-sm"
+      >
+        <a class="btn-buffet" href="./shopSup.html">Continue Shopping</a>
+      </button>
+      <button
+        type="button"
+        id="btn-2"
+        class="btn text-center btn-primary btn-sm"
+      >
+        <a class="btn-buffet" href="./addOrder.html">Confirm and Checkout </a>
+      </button>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

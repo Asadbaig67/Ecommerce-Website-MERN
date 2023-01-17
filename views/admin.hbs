@@ -1,0 +1,835 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fittness Freaks</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/12541518cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/logic.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="w-100">
+      <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container-fluid">
+          <i class="fa-solid fa-dumbbell fs-1 ms-2 me-2 text-light"></i>
+          <a class="navbar-brand" href="#">Fittness Freaks</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-a-custom"
+                  aria-current="page"
+                  href="./index.html"
+                >Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle nav-a-custom"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Shop
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="/shopSup.html"
+                    >Supplements</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/shopclothes.html">Others</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-a-custom" href="/contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-btn-toggle"
+                  href="./login.html"
+                  data-bs-placement="bottom"
+                  title="Click to change theme"
+                >
+                  Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- navbar -->
+
+    <!-- offcanvas -->
+    <div
+      class="offcanvas bg-light offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <h3 class="fw-bold px-4 pt-4 text-uppercase text-light">Admin</h3>
+      <small
+        class="fw-light px-4 pt-0 text-light small"
+      >dawoodzahid76@gmail.com</small>
+      <div class="offcanvas-body">
+        <!-- button no-1 -->
+        <div class="list-group">
+          <a
+            id="dashboard"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-tools me-3 my-3"></i>
+            Dashboard</a>
+          <a
+            id="machine"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-people me-3 my-3"></i>
+            Machinery Details</a>
+          <a
+            id="member"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-people me-3 my-3"></i>
+            Members Details</a>
+          <a
+            id="order"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-people me-3 my-3"></i>
+            Order Details</a>
+          <a
+            id="Change-order-status"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-people me-3 my-3"></i>
+            Change Order Status</a>
+          <a
+            id="customer"
+            href="#"
+            class="list-group-item text-uppercase list-group-item-action"
+          ><i class="bi bi-people me-3 my-3"></i>
+            Customer Care</a>
+        </div>
+      </div>
+    </div>
+    <!-- offcanvas -->
+
+    {{! main body }}
+    <div class="container-fluid main">
+
+      {{! ALERTS }}
+      <div id="alert-success" class="alert d-none alert-success" role="alert">
+        <i class="bi bi-check-circle-fill" style="color: green"></i>
+        Success! Machinery Item Added
+      </div>
+      <div id="alert-failure" class="alert d-none alert-danger" role="alert">
+        <i class="bi bi-exclamation-triangle-fill" style="color: red"></i>
+        Error! Can't Add Machinery Item
+      </div>
+      {{! ALERTS }}
+
+      {{! dashboard code  }}
+      <div class="dashboard">
+        <h1
+          id="welcome"
+          class="text-center text-uppercase p-3 fs-1"
+          style="font-size: 2rem;  color: rgb(245, 249, 255) ; font-weight:bolder;"
+        >Dashboard</h1>
+        <div class="row row_1 pt-3">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <h4 class="card-title">Total Members</h4>
+                <div class="d-flex flex-row justify-content-between">
+                  <h1 class="fw-bord member-count"></h1>
+                  <i class="fa-solid fs-1 fa-users"></i>
+                </div>
+                <small class="card-text text-muted p-0 tex text-small"><span
+                    class="text-success fw-bold fs-2"
+                  >+5% </span>
+                  increase last month</small>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <h4 class="card-title">Total Machinery Items</h4>
+                <div class="d-flex flex-row justify-content-between">
+                  <h1 class="machine-count">10</h1>
+                  <i class="fa-solid fs-1 fa-dumbbell"></i>
+                </div>
+                <small class="card-text text-muted p-0 tex text-small"><span
+                    class="text-success fw-bold fs-2"
+                  >+30% </span>
+                  increase last month</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <div>
+                  <h4 class="card-title">Total Orders</h4>
+                  <div class="d-flex flex-row justify-content-between">
+                    <h1 class="orders-count">10</h1>
+                    <i class="bi fs-1 bi-cart-fill"></i>
+                  </div>
+                  <small
+                    id="Row-1-small"
+                    class="card-text text-muted p-0 tex text-small"
+                  ><span class="text-success fw-bold fs-2">+36% </span>
+                    increase last month</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row_2 pt-3">
+          <div class="col-sm-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <div>
+                  <h4 class="card-title">Orders Completed</h4>
+                  <div class="d-flex flex-row justify-content-between">
+                    <h1 class="Completed_orders">4</h1>
+                    <i class="bi fs-1 bi-bag-check-fill"></i>
+                  </div>
+                  <small
+                    id="Row-1-small"
+                    class="card-text text-muted text-small"
+                  ><span class="text-danger fw-bold fs-2">+54.1% </span>
+                    less earnings</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <div>
+                  <h4 class="card-title">Orders Pending</h4>
+
+                  <div class="d-flex flex-row justify-content-between">
+                    <h1 class="Pending_orders">3</h1>
+                    <i class="bi fs-1 bi-truck"></i>
+                  </div>
+                  <small
+                    id="Row-1-small"
+                    class="card-text text-muted text-small"
+                  >Grow Rate<span class="text-info fw-bold fs-2">+54.1%
+                    </span></small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-light border-light">
+              <div class="card-body">
+                <div>
+                  <h4 class="card-title">Total Products Sold</h4>
+                  <div class="d-flex flex-row justify-content-between">
+                    <h1 class="products"></h1>
+                    <i class="fa-solid fs-1 fa-sack-dollar"></i>
+                  </div>
+                  <small
+                    id="Row-1-small"
+                    class="card-text text-muted text-small"
+                  >Increased by<span class="text-warning fw-bold fs-2">+7.35%
+                    </span></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{! dashboard code  }}
+
+      {{! MACHINERY SECTION  }}
+
+      {{! machine details section }}
+      <div id="machine-details" class="d-none">
+        <div id="row" class="row">
+          <div class="col-6">
+            <h5 class="text-secondary bg-dark font-weight-bold">Machine Name</h5>
+            <ol id="list1">
+            </ol>
+          </div>
+          <div class="col-6 ms-0">
+            <h5 class="text-secondary bg-dark font-weight-bold">Available
+              Quantity</h5>
+            <ul id="list2" class="list-unstyled ps-3">
+            </ul>
+          </div>
+        </div>
+        <div id="machine-icons" class="col-12 d-flex justify-content-start">
+          <a class="add-machine-icon"><i
+              class="bi bi-plus-square-fill mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i></a>
+
+          <a class="update-machine-icon">
+            <i
+              class="fa-solid fa-pen-to-square mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i>
+          </a>
+          <a class="delete-machine-icon"><i
+              class="bi bi-trash-fill mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i></a>
+        </div>
+      </div>
+      {{! machine details section }}
+
+      {{! add machine form }}
+      <div
+        id="add-machine-form"
+        class="d-none border border-dark rounded-3 p-2"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Add New Machinery Item</h2>
+        {{! <form> }}
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Enter Machine Name</label>
+          <input type="text" id="m_name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Enter its quantity</label>
+          <input type="number" id="quantity" class="form-control" required />
+        </div>
+        <button
+          type="submit"
+          id="add-machine-btn"
+          class="btn btn-primary btn-lg"
+        >
+          Add Item
+        </button>
+        {{! </form> }}
+      </div>
+      {{! add machine form }}
+
+      {{! Update machine form }}
+      <div
+        id="update-machine-form"
+        class="d-none border border-dark rounded-3 p-4"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Update Machinery Item</h2>
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Enter Machine Name To Update</label>
+          <input id="old_name" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Enter Machine Name</label>
+          <input type="text" id="new_name" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Enter its quantity</label>
+          <input type="number" id="new_quantity" class="form-control" />
+        </div>
+        <button
+          type="submit"
+          id="update-machine-btn"
+          class="btn btn-primary btn-lg"
+        >
+          Update Item
+        </button>
+      </div>
+      {{! update machine form }}
+
+      {{! Delete machine form }}
+      <div
+        id="delete-machine-form"
+        class="d-none border border-dark rounded-3 p-4"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Delete Machinery Item</h2>
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Enter Machine Name To Delete</label>
+          <input id="name-to-del" type="text" class="form-control" />
+        </div>
+        <button
+          type="submit"
+          id="delete-machine-btn"
+          class="btn btn-primary btn-lg"
+        >
+          Delete Item
+        </button>
+      </div>
+      {{! Delete machine form }}
+
+      {{! MACHINERY SECTION  }}
+
+      {{! MEMBER SECTION }}
+
+      {{! member details section }}
+      <div id="member-details" class="d-none">
+        <div id="row-member" class="row">
+          <div class="col-3">
+            <h5 class="text-secondary bg-dark font-weight-bold">ID</h5>
+            <ol id="list-m0" class="m-0 p-0">
+            </ol>
+          </div>
+          <div class="col-2">
+            <h5 class="text-secondary bg-dark font-weight-bold">Name</h5>
+            <ul id="list-m1" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-secondary bg-dark font-weight-bold">Phone</h5>
+            <ul id="list-m2" class="list-unstyled ps-3">
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-secondary bg-dark font-weight-bold">Address</h5>
+            <ul id="list-m3" class="list-unstyled ps-3">
+            </ul>
+          </div>
+          <div class="col-1">
+            <h5 class="text-secondary bg-dark font-weight-bold">Age</h5>
+            <ul id="list-m4" class="list-unstyled ps-3">
+            </ul>
+          </div>
+        </div>
+        <div id="member-icons" class="col-12 d-flex justify-content-start">
+          <a id="add-member-icon">
+            <i
+              class="bi bi-plus-square-fill mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i>
+          </a>
+          <a>
+            <i
+              id="update-member-icon"
+              class="fa-solid fa-pen-to-square mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i>
+          </a>
+          <a><i
+              id="delete-member-icon"
+              class="bi bi-trash-fill mx-2"
+              style="font-size: 2rem; color: rgb(25, 29, 35);"
+            ></i></a>
+
+        </div>
+      </div>
+      {{! member details section }}
+
+      {{! Add member form }}
+      <div
+        id="add-member-form"
+        class="d-none border border-dark rounded-3 p-4"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Add New Member</h2>
+        <div class="mb-3">
+          <label for="Machine" class="form-label">Name :</label>
+          <input type="text" id="member-name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Phone Number :</label>
+          <input
+            type="number"
+            id="member-phone"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Address</label>
+          <input
+            type="text"
+            id="member-address"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Age</label>
+          <input type="number" id="member-age" class="form-control" required />
+        </div>
+        <button
+          type="submit"
+          id="add-member-btn"
+          class="btn btn-primary btn-lg"
+        >
+          Add Member
+        </button>
+      </div>
+      {{! Add member form }}
+
+      {{! Update member form }}
+      <div
+        id="update-member-form"
+        class="d-none border border-dark rounded-3 p-4"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Update Member Information</h2>
+        <form id="update-member-form border-secondary">
+          <div class="row">
+            <div class="col6">
+              <div class="mb-3">
+                <label for="id" class="form-label">Enter Member ID :</label>
+                <input id="mem-id" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="d-flex flex-column">
+                <div class="mb-3">
+                  <label for="name" class="form-label">New Name :</label>
+                  <input id="new-name" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">New Phone Number :</label>
+                  <input id="new-number" type="number" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex flex-column">
+                <div class="mb-3">
+                  <label for="address" class="form-label">New Address :</label>
+                  <input id="new-address" type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="age" class="form-label">New Age :</label>
+                  <input id="new-age" type="number" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            id="update-member-btn"
+            type="submit"
+            class="btn btn-primary btn-lg"
+          >Update</button>
+        </form>
+      </div>
+      {{! Update member form }}
+
+      {{! Delete member form }}
+      <div
+        id="delete-member-form"
+        class="d-none border border-dark rounded-3 p-4"
+        style="font-size: 1.2rem;  color: rgb(245, 249, 255) ; background-color:#333333"
+      >
+        <h2 class="text-center fw-bolder">Delete Member</h2>
+        <form id="delete-member-form border-secondary">
+          <div class="row">
+            <div class="col6">
+              <div class="mb-3">
+                <label for="id" class="form-label">Enter Member ID :</label>
+                <input id="mem-delete-id" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <button
+            id="delete-member-btn"
+            type="submit"
+            class="btn btn-primary btn-lg"
+          >Delete Member</button>
+        </form>
+      </div>
+      {{! Delete member form }}
+
+      {{! MEMBER SECTION }}
+
+      {{! ORDER SECTION }}
+
+      {{! Order details section }}
+      <div id="order-details" class="d-none">
+        <h3
+          class="text-center text-uppercase p-3 fs-1"
+          style="font-size: 2rem;  color: rgb(245, 249, 255) ; font-weight:bolder;  background-color:#333333"
+        >Customer Personal Information</h3>
+        <div class="row">
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">id</h5>
+            <ol id="list-o-m0" class="m-0 p-0">
+            </ol>
+          </div>
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">Name</h5>
+            <ul id="list-o-m1" class="m-0 list-unstyled p-0">
+            </ul>
+          </div>
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">Phone</h5>
+            <ul id="list-o-m2" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">Address</h5>
+            <ul id="list-o-m3" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">Email</h5>
+            <ul id="list-o-m4" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-4">
+            <h5 class="text-secondary bg-dark font-weight-bold">Order Status</h5>
+            <ul id="list-o-m5" class="list-unstyled">
+            </ul>
+          </div>
+        </div>
+        <hr class="border border-5 border-dark" />
+        <h3
+          class="text-center text-uppercase p-3 fs-1"
+          style="font-size: 2rem;  color: rgb(245, 249, 255) ; font-weight:bolder; background-color:#333333"
+        >Customer Order Details</h3>
+        <div id="cart-details" class="mt-3">
+          <div class="row">
+            <div class="col-4">
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Customer_ID
+              </h5>
+              <ol id="list0-o" class="list-unstyled"></ol>
+            </div>
+            <div class="col-4">
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Product Name
+              </h5>
+              <ul id="list1-o" class="list-unstyled"></ul>
+            </div>
+            <div class="col-4">
+              <h5 class="text-secondary bg-dark font-weight-bold">
+                Product Desription
+              </h5>
+              <ul id="list2-o" class="list-unstyled"></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {{! Order details section }}
+
+      {{! UPDATE ORDER STATUS SECTION }}
+      {{!Alerts }}
+      <div id="alert-status-s" class="alert d-none alert-success" role="alert">
+        <i class="bi bi-check-circle-fill" style="color: green"></i>
+        Success! Record Update
+      </div>
+      <div id="alert-status-d" class="alert d-none alert-danger" role="alert">
+        <i class="bi bi-exclamation-triangle-fill" style="color: red"></i>
+        Error! Please try again
+      </div>
+      {{!Alerts }}
+
+      {{!Order Status Form }}
+      <div id="update-order-section" class="mt-3 d-none bg-light">
+        <h3 class="text-dark">Enter detalis for Order to Change Order Status!</h3>
+        <form id="delete-member-form border-secondary">
+          <div class="row">
+            <div class="col6">
+              <div class="mb-3">
+                <label for="id" class="form-label">Enter Customer ID :</label>
+                <input id="staus-update-id" type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <button
+            id="status-change-btn"
+            type="button"
+            class="btn text-center btn-primary"
+          >Update Status</button>
+        </form>
+      </div>
+      {{! Order Status Form }}
+      {{! UPDATE ORDER STATUS SECTION }}
+
+      {{! ORDER SECTION }}
+
+      {{! Contact details section }}
+      <div id="contact-details" class="d-none">
+        <div id="contact" class="row">
+          <div class="col-2">
+            <h5 class="text-secondary bg-dark font-weight-bold">Name</h5>
+            <ol id="list-c-m1">
+            </ol>
+          </div>
+          <div class="col-2">
+            <h5 class="text-secondary bg-dark font-weight-bold">Phone</h5>
+            <ul id="list-c-m2" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-3">
+            <h5 class="text-secondary bg-dark font-weight-bold">Email</h5>
+            <ul id="list-c-m3" class="list-unstyled">
+            </ul>
+          </div>
+          <div class="col-5">
+            <h5 class="text-secondary bg-dark font-weight-bold">Message</h5>
+            <ul id="list-c-m4" class="list-unstyled">
+            </ul>
+          </div>
+        </div>
+
+        {{!Update Alerts }}
+        <div id="alert-s" class="alert d-none alert-success" role="alert">
+          <i class="bi bi-check-circle-fill" style="color: green"></i>
+          Success! Record Updated
+        </div>
+        <div id="alert-d" class="alert d-none alert-danger" role="alert">
+          <i class="bi bi-exclamation-triangle-fill" style="color: red"></i>
+          Error! Please try again
+        </div>
+        {{!Update Alerts }}
+
+        {{! member update form }}
+        <div id="update-member-section" class="d-none mt-3 bg-light">
+          <h3 class="text-dark">Enter detalis for member to update!</h3>
+          <form id="update-member-form border-secondary">
+            <div class="row">
+              <div class="col6">
+                <div class="mb-3">
+                  <label for="id" class="form-label">Enter Member ID :</label>
+                  <input id="mem-id" type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="d-flex flex-column">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">New Name :</label>
+                    <input id="new-name" type="text" class="form-control" />
+                    <small>Please repeat the name otherwise name field will be
+                      updated to empty</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">New Phone Number :</label>
+                    <input id="new-number" type="number" class="form-control" />
+                    <small>Please repeat the phone number otherwise this field
+                      will be updated to empty</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex flex-column">
+                  <div class="mb-3">
+                    <label for="address" class="form-label">New Address :</label>
+                    <input id="new-address" type="text" class="form-control" />
+                    <small>Please repeat the address otherwise this field will
+                      be updated to empty</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label">New Age :</label>
+                    <input id="new-age" type="number" class="form-control" />
+                    <small>Please repeat the age otherwise this field will be
+                      updated to empty</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              id="form-update-btn"
+              type="button"
+              class="btn text-center btn-primary"
+            >Update</button>
+          </form>
+        </div>
+        {{! member update form }}
+
+        {{!Delete Alerts }}
+        <div
+          id="alert-delete-s"
+          class="alert d-none alert-success"
+          role="alert"
+        >
+          <i class="bi bi-check-circle-fill" style="color: green"></i>
+          Success! Record Deleted
+        </div>
+        <div id="alert-delete-d" class="alert d-none alert-danger" role="alert">
+          <i class="bi bi-exclamation-triangle-fill" style="color: red"></i>
+          Error! Please try again
+        </div>
+        {{!Delete Alerts }}
+
+        {{!Status Update Alerts }}
+        <div
+          id="alert-status-s"
+          class="alert d-none alert-success"
+          role="alert"
+        >
+          <i class="bi bi-check-circle-fill" style="color: green"></i>
+          Success! Record Update
+        </div>
+        <div id="alert-status-d" class="alert d-none alert-danger" role="alert">
+          <i class="bi bi-exclamation-triangle-fill" style="color: red"></i>
+          Error! Please try again
+        </div>
+        {{!Status Update Alerts }}
+
+        {{! member delete form }}
+        <div id="delete-member-section" class="d-none mt-3 bg-light">
+          <h3 class="text-dark">Enter detalis for member to Delete!</h3>
+          <form id="delete-member-form border-secondary">
+            <div class="row">
+              <div class="col6">
+                <div class="mb-3">
+                  <label for="id" class="form-label">Enter Member ID :</label>
+                  <input id="mem-delete-id" type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <button
+              id="form-delete-btn"
+              type="button"
+              class="btn text-center btn-primary"
+            >Delete</button>
+          </form>
+        </div>
+        {{! member delete form }}
+
+      </div>
+      {{! Contact details section }}
+
+      {{! main body }}
+    </div>
+  </body>
+</html>

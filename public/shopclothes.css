@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300&family=Smooch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300&family=Smooch&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Montserrat:wght@300&family=Open+Sans:wght@300&family=Smooch&family=Ubuntu:wght@300&display=swap');
+
+:root {
+    --white-color: #e7dce2;
+    /* --purple-color: red; */
+    --purple-color: #333;
+    --laptop-screen: 1200px;
+    --small-laptop-screen: 1024px;
+    --tab-screen: 767px;
+    --mobile-screen: 480px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.navbar-brand:hover {
+    color: var(--white-color);
+}
+
+
+.custom-navbar {
+    background-color: var(--purple-color);
+}
+
+.nav-a-custom {
+    font-size: 1.5rem;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: var(--white-color);
+    font-weight: lighter;
+}
+
+.nav-a-custom:hover {
+    color: var(--white-color) !important;
+    cursor: pointer;
+    border-bottom: 1px solid #e7dce2;
+}
+
+.nav-btn-toggle {
+    margin-top: 6px;
+    font-size: 1.5rem;
+    padding: 2px !important;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: var(--white-color);
+    background-color: var(--purple-color);
+}
+
+.nav-btn-toggle:hover {
+    background-color: var(--white-color);
+    color: var(--purple-color);
+}
+
+.nav-btn-toggle:focus {
+    background-color: var(--white-color);
+    color: var(--purple-color);
+}
+
+.a-active {
+    border-bottom: 2px solid #37474F;
+}
+
+.profile-card {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
+    margin-top: 20px;
+    height: 480px;
+    width: 420px;
+}
+
+.profile-card .btn {
+    color: white;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 7px 20px;
+}
+
+.profile-card .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+
+}
+
+.profile-card .card-img-block img {
+    transition: all 0.4s ease-in-out;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+}
+.profile-card .card-img-block img {
+    width: 380px;
+    height: 350px;
+}
+
+.profile-card .card-img-block img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.profile-card h4 {
+    color: var(--purple-color);
+    /* color: #4E5E30; */
+    font-weight: 600px;
+}
+
+.profile-card p {
+    font-size: 14px;
+    font-weight: 300px;
+}
+
+.profile-card .btn-primary {
+
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+    background-color: var(--purple-color);
+    border-color: var(--purple-color);
+}
+
+.btn-primary>.btn-buffet {
+    text-decoration: none;
+}
+
+.profile-card .btn-primary:hover {
+
+    cursor: pointer;
+}
+
+/* @media (min-width:992) {
+    .profile-card-1 {
+        margin-left: 53px;
+    }
+
+    .profile-card-2 {
+        margin-left: 53px;
+    }
+
+    .profile-card-3 {
+        margin-left: 53px;
+    }
+} */
+.profile-card-1 {
+    margin-left: 5px;
+}
+
+.profile-card-2 {
+    margin-left: 5px;
+}
+
+.profile-card-3 {
+    margin-left: 5px;
+}
+
+.card-custom {
+    position: relative;
+
+}
+
+.footer {
+    position: relative;
+    bottom: 0%;
+    height: 230px;
+    background-color:var(--purple-color);
+}
+
+.footer-item {
+    margin-left: 50px;
+    font-size: smaller;
+    font-weight: lighter;
+    color: #e7dce2;
+    list-style: none;
+}
+
+.footer h2 {
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-left: 81px;
+    color: #e7dce2;
+}
+
+.bi-facebook,
+.bi-twitter,
+.bi-whatsapp,
+.bi-instagram {
+    color: #e7dce2;
+    margin-left: 7px;
+}
+
+.bi-facebook,
+.bi-twitter,
+.bi-whatsapp,
+.bi-instagram:hover {
+    cursor: pointer;
+}
+
+.bi-facebook {
+    margin-left: 82px;
+}
+
+#home-link {
+    text-decoration: none;
+    color: #e7dce2;
+}

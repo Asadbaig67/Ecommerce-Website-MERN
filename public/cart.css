@@ -1,0 +1,31 @@
+:root {
+  --white-color: #e7dce2;
+  /* --purple-color: red; */
+  --purple-color: #333;
+  --laptop-screen: 1200px;
+  --small-laptop-screen: 1024px;
+  --tab-screen: 767px;
+  --mobile-screen: 480px;
+}
+.btn-primary {
+  border-radius: 0%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+  background-color: var(--purple-color);
+  border-color: var(--purple-color);
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 7px 20px;
+}
+
+.btn-primary:hover {
+  background-color: var(--purple-color);
+  color: white;
+  cursor: pointer;
+}
+.btn-primary:active {
+  background-color: var(--purple-color);
+  color: white;
+  cursor: pointer;
+}
